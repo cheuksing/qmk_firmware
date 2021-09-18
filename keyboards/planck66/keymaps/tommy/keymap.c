@@ -1,5 +1,5 @@
 #include "kb.h"
-#include "print.h"
+// #include "print.h"
 
 bool onMac = false;
 bool isModPressed = false;
@@ -113,9 +113,9 @@ void convert_to_modded_code(uint16_t mod, uint16_t kc, keyrecord_t *record) {
 	}
 }
 
-void keyboard_post_init_user(void) {
-  debug_enable=true;
-}
+// void keyboard_post_init_user(void) {
+//   debug_enable=true;
+// }
 
 bool qmk_mode_set(uint16_t keycode, keyrecord_t *record) {
 	switch (keycode) {
@@ -158,7 +158,7 @@ bool is_include(uint16_t value, uint16_t list[], const int size) {
 	int i = 0;
 	while (i < size) {
 		const bool isEqual = list[i] == value;
-		uprintf("is_include, i %d, keycode %d, value %d, equal %s \n", i, list[i], value, isEqual ? "true" : "false");
+		// uprintf("is_include, i %d, keycode %d, value %d, equal %s \n", i, list[i], value, isEqual ? "true" : "false");
 		i++;
 		if (isEqual) return true;
 	}
@@ -185,7 +185,7 @@ bool command_override(uint16_t keycode, keyrecord_t *record) {
 	if (!isModPressed) return true;
 
 	if (is_include(keycode, cmdOverrideKcs, cmdOverrideKcsSize)) {
-		uprintf("Command Override");
+		// uprintf("Command Override");
 		convert_to_modded_code(KC_LCTL, keycode, record);
 		return false;
 	} else {
