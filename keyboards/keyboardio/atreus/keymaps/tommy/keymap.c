@@ -19,6 +19,10 @@ enum layer_names {
     _MAGIC,
 };
 
+#define Z_SFT     SFT_T(KC_Z)
+#define SLSH_SFT  SFT_T(KC_SLSH)
+#define GRAVE_SFT SFT_T(KC_GRAVE)
+#define RBRC_SFT  SFT_T(KC_RBRC)
 
 #define BSPC_SFT  SFT_T(KC_BSPC)
 #define SPACE_SFT SFT_T(KC_SPC)
@@ -37,13 +41,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT( /* Colemak */
     KC_Q,    KC_W,    KC_F,     KC_P,     KC_G,                         KC_J,     KC_L,    KC_U,    KC_Y,    KC_SCLN,
     A_MAGIC, KC_R,    KC_S,     KC_T,     KC_D,                         KC_H,     KC_N,    KC_E,    KC_I,    KC_O,
-    KC_Z,    KC_X,    KC_C,     KC_V,     KC_B,      KC_GRAVE, KC_BSLS, KC_K,     KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
+    Z_SFT,   KC_X,    KC_C,     KC_V,     KC_B,      KC_GRAVE, KC_BSLS, KC_K,     KC_M,    KC_COMM, KC_DOT,  SLSH_SFT,
     KC_LCTRL,KC_TAB,  KC_LALT,  ESC_GUI,  SPACE_SFT, FN0,      FN0,     BSPC_SFT, KC_LALT, KC_MINS, KC_QUOT, KC_ENT
   ),
   [_FN0] = LAYOUT( /* [> FN0 <] */
     KC_1,      KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,     KC_7,    KC_8,     KC_9,    KC_0    ,
     EXLM_MAGIC,KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                     KC_CIRC,  KC_AMPR, KC_ASTR,  KC_LPRN, KC_RPRN ,
-    KC_GRAVE,  KC_TILD, _______, _______, _______, _______,  _______,  KC_PLUS,  KC_MINS,  _______, KC_LBRC, KC_RBRC,
+    GRAVE_SFT, KC_TILD, _______, _______, _______, _______,  _______,  KC_PLUS,  KC_MINS,  _______, KC_LBRC, RBRC_SFT,
     _______,   _______, _______, KC_LGUI, _______, FN1,      FN1,      _______,  _______,  KC_EQL,  _______, _______
   ),
   [_FN1] = LAYOUT( /* [> FN1 <] */
