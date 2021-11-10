@@ -7,6 +7,7 @@
 #include QMK_KEYBOARD_H
 
 #define TAPPING_TERM 200
+#define PERMISSIVE_HOLD
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -33,7 +34,7 @@ enum layer_names {
 #define FN1 MO(_FN1)
 
 #define A_MAGIC LT(_MAGIC, KC_A)
-#define EXLM_MAGIC LT(_MAGIC, KC_EXLM)
+// #define EXLM_MAGIC LT(_MAGIC, KC_EXLM)
 
 #define ESC_GUI LGUI_T(KC_ESC)
 
@@ -46,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_FN0] = LAYOUT( /* [> FN0 <] */
     KC_1,      KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,     KC_7,    KC_8,     KC_9,    KC_0    ,
-    EXLM_MAGIC,KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                     KC_CIRC,  KC_AMPR, KC_ASTR,  KC_LPRN, KC_RPRN ,
+    KC_EXLM,   KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                     KC_CIRC,  KC_AMPR, KC_ASTR,  KC_LPRN, KC_RPRN ,
     GRAVE_SFT, KC_TILD, _______, _______, _______, _______,  _______,  KC_PLUS,  KC_MINS,  _______, KC_LBRC, RBRC_SFT,
-    _______,   _______, _______, KC_LGUI, _______, FN1,      FN1,      _______,  _______,  KC_EQL,  _______, _______
+    _______,   _______, _______, KC_LGUI, _______, FN1,      FN1,      _______,  _______,  KC_EQL,  KC_LCBR, KC_RCBR
   ),
   [_FN1] = LAYOUT( /* [> FN1 <] */
     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10 ,
